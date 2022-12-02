@@ -1,8 +1,11 @@
 <?php
 
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/templates');
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
-$twig =  new \Twig\Environment($loader, [
+$loader = new FilesystemLoader(__DIR__ . '/templates');
+
+$twig =  new Environment($loader, [
     // 'cache' => __DIR__ . '/cache'
 ]);
 
