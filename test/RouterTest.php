@@ -57,8 +57,21 @@ class RouterTest extends TestCase
         $this->assertEquals($expected, $actual);
    }
 
-    //    public function testeVerificaNaoSeEncontraRotaComMetodoErrado()
-    //    {
-    //         ///
-    //    }
+    public function testeVerificaNaoSeEncontraRotaComMetodoErrado()
+    {
+        $router = new Router('GET', '/outra-url');
+
+        $router->add('POST', '/ola-mundo', function() {
+            return true;
+        });
+
+        /// handler always return clojure
+        $result = $router->handler();
+
+        $actual = $result(); /// clojure variable
+        $expected = true;
+
+        /// handler shall return 'false'
+        $this->assertNotEquals($expected, $actual);
+    }
 }

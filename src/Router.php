@@ -7,6 +7,7 @@ class Router
     private $routes = [];
     private $method;
     private $path;
+    private $params;
 
     public function __construct($method, $path)
     {
@@ -38,6 +39,14 @@ class Router
     public function add(string $method, string $route, callable $action)
     {
         $this->routes[$method][$route] = $action;
+    }
+
+    /**
+     * @method getParams
+     */
+    public function getParams()
+    {
+        return $this->params;
     }
 
     /**
@@ -84,7 +93,9 @@ class Router
         $regex = preg_replace('/{([a-zA-Z+])}/', '([a-zA-Z0-9+])', $regex);
 
         /// executing regex
-        $result = preg_match('/^'.$regex.'$/', $path);
+        $result = preg_match('/^'.$regex.'$/', $path, $params);
+
+        $this->params = $params;
 
         return $result;
     }
