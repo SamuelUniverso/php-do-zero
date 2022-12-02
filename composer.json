@@ -2,8 +2,7 @@
     "name": "rosa/php-do-zero",
     "autoload": {
         "psr-4": {
-            "Rosa\\PhpDoZero\\": "src/",
-            "App\\": "app/"
+            "Rosa\\PhpDoZero\\": "src/"
         }
     },
     "authors": [

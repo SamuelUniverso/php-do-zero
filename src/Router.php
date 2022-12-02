@@ -19,7 +19,7 @@ class Router
      * @method get
      * @return void
      */
-    public function get(string $route, $action)
+    public function get(string $route, callable $action)
     {
         $this->add('GET', $route, $action);
     }
@@ -28,7 +28,7 @@ class Router
      * @method post
      * @return void
      */
-    public function post(string $route, $action)
+    public function post(string $route, callable $action)
     {
         $this->add('POST', $route, $action);
     }
@@ -36,7 +36,7 @@ class Router
     /**
      * @method add
      */
-    public function add(string $method, string $route, $action)
+    public function add(string $method, string $route, callable $action)
     {
         $this->routes[$method][$route] = $action;
     }
@@ -51,6 +51,7 @@ class Router
 
     /**
      * @method handler
+     * @return callable
      */
     public function handler()
     {
