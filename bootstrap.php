@@ -1,8 +1,8 @@
 <?php
 
 require "vendor/autoload.php";
+require "database.php";
 
-use App\HomeController;
 use Rosa\PhpDoZero\Router;
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -14,7 +14,9 @@ $router->get('/', function() {
     return "Olá mundo!";
 });
 
-$router->get('/ola-{nome}', 'App\HomeController::hello');
+$router->get('/ola-{nome}', 'App\Controller\HomeController::hello');
+
+$router->get('/users', 'App\Controller\HomeController::listUsers');
 
 $result = $router->handler();
 
