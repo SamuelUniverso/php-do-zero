@@ -32,8 +32,10 @@ if ($result instanceof clojure) {
 elseif(is_string(($result))) {
     $result = explode('::', $result);
 
-    $controller = new $result[0];
+    $controller = new $result[0]($twig);
     $action = $result[1];
 
     echo $controller->$action($router->getParams());
 }
+
+$twig = require(__DIR__ . '/render.php');

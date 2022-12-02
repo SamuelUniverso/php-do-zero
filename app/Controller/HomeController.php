@@ -3,9 +3,18 @@
 namespace App\Controller;
 
 use App\Model\User;
+use Twig\Environment;
 
 class HomeController
 {
+    private $twig;
+
+    public function __construct(Environment $twig)
+    {
+        var_dump($twig);
+        $this->twig = $twig;
+    }
+
     public function hello($params)
     {
         return "Olá {$params[1]}";
@@ -13,6 +22,6 @@ class HomeController
 
     public function listUsers()
     {
-        return User::all();
+        return $this->twig->redner('users/index.html'. ['users' => User::all()]);
     }
 }
