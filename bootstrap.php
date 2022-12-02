@@ -2,6 +2,7 @@
 
 require "vendor/autoload.php";
 
+use App\HomeController;
 use Rosa\PhpDoZero\Router;
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -13,9 +14,7 @@ $router->get('/', function() {
     return "Olá mundo!";
 });
 
-$router->get('/ola-{nome}', function($params) {
-    return "Olá " . $params[1]; /// 0 is the entire route
-});
+$router->get('/ola-{nome}', 'App\HomeController::hello');
 
 $result = $router->handler();
 
@@ -25,4 +24,14 @@ if(!$result) {
     exit();
 }
 
-echo $result($router->getParams());
+if ($result instanceof clojure) {
+    echo $result($router->getParams());
+}
+elseif(is_string(($result))) {
+    $result = explode('::', $result);
+
+    $controller = new $result[0];
+    $action = $result[1];
+
+    echo $controller->$action($router->getParams());
+}
