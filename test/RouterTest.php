@@ -15,11 +15,13 @@ class RouterTest extends TestCase
             return true;
         });
 
+        /// handler always return clojure
         $result = $router->handler();
 
         $actual = $result(); /// clojure variable
         $expected = true;
 
+        /// handler shall return 'true'
         $this->assertEquals($expected, $actual);
    }
 
@@ -31,30 +33,32 @@ class RouterTest extends TestCase
             return true;
         });
 
+        /// handler always return clojure
         $result = $router->handler();
 
-        $actual = $result;
-        $expected = false;
+        $actual = $result(); /// clojure variable
+        $expected = true;
 
+        /// handler shall return 'false'
+        $this->assertNotEquals($expected, $actual);
+   }
+
+   public function testVerificaSeEncontraRotaVariavel()
+   {
+        $router = new Router('GET', '/ola-samuel');
+        $router->add('GET', '/ola-{nome}', function() {
+            return true;
+        });
+
+        $result = $router->handler();
+
+        $actual = $result();
+        $expected = true;
         $this->assertEquals($expected, $actual);
    }
 
-//    public function testeVerificaNaoSeEncontraRotaComMetodoErrado()
-//    {
-//         ///
-//    }
-
-//    public function testeVerificaSeEncontraRotaVariavel()
-//    {
-//         $router = new Router('GET', '/ola-erik');
-//         $router->add('GET', '/ola-{nome}', function() {
-//             return true;
-//         });
-
-//         $result = $router->handler();
-
-//         $actual = $result();
-//         $expected = true;
-//         $this->assertEquals($expected, $actual);
-//    }
+    //    public function testeVerificaNaoSeEncontraRotaComMetodoErrado()
+    //    {
+    //         ///
+    //    }
 }
