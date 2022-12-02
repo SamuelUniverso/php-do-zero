@@ -1,0 +1,17 @@
+{
+    "name": "rosa/php-do-zero",
+    "autoload": {
+        "psr-4": {
+            "Rosa\\PhpDoZero\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SamuelUniverso",
+            "email": "samuel.rockenbach@universo.univates.br"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
