@@ -3,7 +3,7 @@
         'name' => 'rosa/php-do-zero',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b3901d02caf3f55382240c20e6d261781899f612',
+        'reference' => '84dc3b64c3911a515636a59e4a33df8f232b6e10',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -214,7 +214,7 @@
         'rosa/php-do-zero' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b3901d02caf3f55382240c20e6d261781899f612',
+            'reference' => '84dc3b64c3911a515636a59e4a33df8f232b6e10',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -486,6 +486,15 @@
             'install_path' => __DIR__ . '/../theseer/tokenizer',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'twig/twig' => array(
+            'pretty_version' => 'v3.4.3',
+            'version' => '3.4.3.0',
+            'reference' => 'c38fd6b0b7f370c198db91ffd02e23b517426b58',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twig/twig',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'voku/portable-ascii' => array(
             'pretty_version' => '1.6.1',
