@@ -21,6 +21,6 @@ class HomeController
 
     public function listUsers()
     {
-        return $this->twig->render('users/index.html', ['users' => User::all()]);
+        return $this->twig->render('users/users.html', ['users' => User::all()]);
     }
 }

@@ -34,7 +34,7 @@ if ($result instanceof clojure) {
 elseif(is_string(($result))) {
     $result = explode('::', $result);
 
-    $controller = new $result[0]($twig);
+    $controller = new $result[0]($twig); /// HomeController($twig)
     $action = $result[1];
 
     echo $controller->$action($router->getParams());
