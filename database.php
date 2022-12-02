@@ -9,7 +9,7 @@ $capsule->addConnection([
     'host'      => 'localhost',
     'database'  => 'php_do_zero',
     'username'  => 'postgres',
-    'password'  => '',
+    'password'  => 'postgres',
     'charset'   => 'utf8',
     'prefix'    => '',
 ]);

@@ -26,6 +26,8 @@ if(!$result) {
     exit();
 }
 
+$twig = require(__DIR__ . '/render.php');
+
 if ($result instanceof clojure) {
     echo $result($router->getParams());
 }
@@ -37,5 +39,3 @@ elseif(is_string(($result))) {
 
     echo $controller->$action($router->getParams());
 }
-
-$twig = require(__DIR__ . '/render.php');

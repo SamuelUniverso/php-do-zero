@@ -11,7 +11,6 @@ class HomeController
 
     public function __construct(Environment $twig)
     {
-        var_dump($twig);
         $this->twig = $twig;
     }
 
@@ -22,6 +21,6 @@ class HomeController
 
     public function listUsers()
     {
-        return $this->twig->redner('users/index.html'. ['users' => User::all()]);
+        return $this->twig->render('users/index.html', ['users' => User::all()]);
     }
 }
